@@ -16,5 +16,9 @@ RUN apt-get update \
   && echo "    read only = no" >> /etc/samba/smb.conf \
   && echo "    browsable = yes" >> /etc/samba/smb.conf \
   && echo "    guest ok = yes" >> /etc/samba/smb.conf
+  && useradd -ms /bin/bash samba
 COPY ./sensitive_data.csv /opt/confidential
-CMD /usr/sbin/smbd -F -s /etc/samba/smb.conf
+USER samba
+EXPOSE 139
+EXPOSE 445
+CMD ["/usr/sbin/smbd", "-F", "-s", "/etc/samba/smb.conf"]
