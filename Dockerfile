@@ -22,4 +22,4 @@ USER samba
 EXPOSE 139
 EXPOSE 445
 STOPSIGNAL SIGTERM
-CMD ["/usr/sbin/smbd", "-F", "-s", "/etc/samba/smb.conf"]
+CMD /usr/sbin/smbd -F -s /etc/samba/smb.conf < /dev/null
