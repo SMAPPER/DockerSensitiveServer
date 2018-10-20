@@ -1,4 +1,4 @@
-FROM dperson/samba
+FROM ubuntu:18.04
 MAINTAINER justin@hasecuritysolutions.com
 
 # Create the log file to be able to run tail
