@@ -15,10 +15,8 @@ RUN apt-get update \
   && echo "    path = /opt/confidential" >> /etc/samba/smb.conf \
   && echo "    read only = no" >> /etc/samba/smb.conf \
   && echo "    browsable = yes" >> /etc/samba/smb.conf \
-  && echo "    guest ok = yes" >> /etc/samba/smb.conf \
-  && useradd -ms /bin/bash samba
+  && echo "    guest ok = yes" >> /etc/samba/smb.conf
 COPY ./sensitive_data.csv /opt/confidential
-USER samba
 EXPOSE 139
 EXPOSE 445
 STOPSIGNAL SIGTERM
