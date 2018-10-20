@@ -16,5 +16,5 @@ RUN apt-get update \
   && echo "    read only = no" >> /etc/samba/smb.conf \
   && echo "    browsable = yes" >> /etc/samba/smb.conf \
   && echo "    guest ok = yes" >> /etc/samba/smb.conf
-COPY ./sensitive_data.csv /opt/
-CMD /usr/sbin/smbd -D -s /etc/samba/smb.conf
+COPY ./sensitive_data.csv /opt/confidential
+CMD /usr/sbin/smbd -F -s /etc/samba/smb.conf
