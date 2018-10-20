@@ -21,4 +21,5 @@ COPY ./sensitive_data.csv /opt/confidential
 USER samba
 EXPOSE 139
 EXPOSE 445
+STOPSIGNAL SIGTERM
 CMD ["/usr/sbin/smbd", "-F", "-s", "/etc/samba/smb.conf"]
